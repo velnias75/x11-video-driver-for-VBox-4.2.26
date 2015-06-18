@@ -1,0 +1,58 @@
+--- vboxsf/utils.c.orig	2015-06-18 07:55:26.000000000 +0200
++++ vboxsf/utils.c	2015-06-18 07:57:49.000000000 +0200
+@@ -98,8 +98,10 @@
+ 
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 0)
+     inode->i_mapping->a_ops = &sf_reg_aops;
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 0, 0)
+     inode->i_mapping->backing_dev_info = &sf_g->bdi;
+ #endif
++#endif
+ 
+     if (RTFS_IS_DIRECTORY(attr->fMode))
+     {
+@@ -870,13 +872,13 @@
+ 
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 0)
+     sf_g->bdi.ra_pages = 0; /* No readahead */
+-# if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 12)
++# if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 12) && LINUX_VERSION_CODE < KERNEL_VERSION(4, 0, 0)
+     sf_g->bdi.capabilities  = BDI_CAP_MAP_DIRECT    /* MAP_SHARED */
+                             | BDI_CAP_MAP_COPY      /* MAP_PRIVATE */
+                             | BDI_CAP_READ_MAP      /* can be mapped for reading */
+                             | BDI_CAP_WRITE_MAP     /* can be mapped for writing */
+                             | BDI_CAP_EXEC_MAP;     /* can be mapped for execution */
+-# endif /* >= 2.6.12 */
++# endif /* >= 2.6.12 && < 4.0.0 */
+ # if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 24)
+     rc = bdi_init(&sf_g->bdi);
+ #  if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 26)
+--- VirtualBox-4.2.26/src/VBox/Additions/linux/sharedfolders/utils.c.orig	2015-06-18 07:55:26.000000000 +0200
++++ VirtualBox-4.2.26/src/VBox/Additions/linux/sharedfolders/utils.c	2015-06-18 07:57:49.000000000 +0200
+@@ -98,8 +98,10 @@
+ 
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 0)
+     inode->i_mapping->a_ops = &sf_reg_aops;
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 0, 0)
+     inode->i_mapping->backing_dev_info = &sf_g->bdi;
+ #endif
++#endif
+ 
+     if (RTFS_IS_DIRECTORY(attr->fMode))
+     {
+@@ -870,13 +872,13 @@
+ 
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 0)
+     sf_g->bdi.ra_pages = 0; /* No readahead */
+-# if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 12)
++# if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 12) && LINUX_VERSION_CODE < KERNEL_VERSION(4, 0, 0)
+     sf_g->bdi.capabilities  = BDI_CAP_MAP_DIRECT    /* MAP_SHARED */
+                             | BDI_CAP_MAP_COPY      /* MAP_PRIVATE */
+                             | BDI_CAP_READ_MAP      /* can be mapped for reading */
+                             | BDI_CAP_WRITE_MAP     /* can be mapped for writing */
+                             | BDI_CAP_EXEC_MAP;     /* can be mapped for execution */
+-# endif /* >= 2.6.12 */
++# endif /* >= 2.6.12 && < 4.0.0 */
+ # if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 24)
+     rc = bdi_init(&sf_g->bdi);
+ #  if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 26)

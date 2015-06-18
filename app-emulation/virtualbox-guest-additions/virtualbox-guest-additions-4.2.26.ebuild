@@ -74,6 +74,8 @@ src_prepare() {
 	# PaX fixes (see bug #298988)
 	pushd "${WORKDIR}" &>/dev/null || die
 	epatch "${FILESDIR}"/vboxguest-4.1.0-log-use-c99.patch
+	epatch "${FILESDIR}"/vboxsf-4.2.26-linux-3.19.patch
+	epatch "${FILESDIR}"/vboxsf-4.2.26-linux-4.0.patch
 	popd &>/dev/null || die
 
 	# Disable things unused or splitted into separate ebuilds
