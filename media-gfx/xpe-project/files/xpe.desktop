@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=neXtgen Povray Editor
+GenericName=Graphical editor for Povray
+GenericName[de]=Grafischer Editor für Povray
+Comment=Graphical editor for Povray
+Comment[de]=Grafischer Editor für Povray
+Exec=xpe
+Terminal=false
+Icon=xpe
+Type=Application
+Version=1.0
+Categories=Graphics;

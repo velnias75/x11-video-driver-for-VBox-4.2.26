@@ -1,0 +1,25 @@
+diff -uNr xpe_project.orig/configure.in xpe_project/configure.in
+--- xpe_project.orig/configure.in	2015-09-28 17:34:41.000000000 +0200
++++ xpe_project/configure.in	2015-09-28 17:37:03.000000000 +0200
+@@ -6,8 +6,8 @@
+ AC_LIBTOOL_DLOPEN
+ AC_PROG_LIBTOOL
+ 
+-CPPFLAGS="$CPPFLAGS -Wall -g -fexceptions"
+-CXXFLAGS="$CPPFLAGS -Wall -g -fexceptions"
++CPPFLAGS="${CPPFLAGS} -g -fexceptions"
++CXXFLAGS="${CXXFLAGS} -g -fexceptions"
+ 
+ WXCONFIG=wx-config
+ AC_ARG_WITH(wx-config,
+@@ -46,8 +46,8 @@
+ fi
+ 
+ 
+-CPPFLAGS="$CPPFLAGS $WX_CPPFLAGS"
+-CXXFLAGS="$CXXFLAGS $WX_CPPFLAGS"
++CPPFLAGS="${CPPFLAGS} ${WX_CPPFLAGS}"
++CXXFLAGS="${CXXFLAGS} ${WX_CXXFLAGS}"
+ 
+ 
+ AC_SUBST(LIBS)
