@@ -1,0 +1,51 @@
+diff -uNr xpe_project.orig/src/xpe_components/panelelt/explorer_panelelt.cpp xpe_project/src/xpe_components/panelelt/explorer_panelelt.cpp
+--- xpe_project.orig/src/xpe_components/panelelt/explorer_panelelt.cpp	2015-09-30 06:30:54.000000000 +0200
++++ xpe_project/src/xpe_components/panelelt/explorer_panelelt.cpp	2015-09-30 06:39:23.000000000 +0200
+@@ -26,6 +26,7 @@
+ #include <wx/dir.h>
+ #include <wx/arrstr.h>
+ #include <wx/mimetype.h>
++#include <wx/log.h>
+ 
+ #include "components/framework/tapplicationpanel.h"
+ #include "components/framework/tapplication.h"
+@@ -125,9 +126,13 @@
+     this->files->DeleteAllItems();
+     this->datas.erase(this->datas.begin(), this->datas.end());
+ 
+-    wxFileName fn(sPath + wxT("/")); // contournement de bug de WX pour etre sur de virer tous les ".."
+-    fn.Normalize(wxPATH_NORM_DOTS, wxEmptyString, wxPATH_UNIX);
+-    sPath = fn.GetFullPath();
++	wxFileName fn(sPath + wxT("/")); // contournement de bug de WX pour etre sur de virer tous les ".."
++	{
++		wxLogNull logNo;
++		fn.Normalize(wxPATH_NORM_DOTS, wxEmptyString, wxPATH_UNIX);
++		sPath = fn.GetFullPath();
++	}
++
+     this->sCurrentPath = libfile::normalize(sPath);
+     if(this->sCurrentPath.GetChar(this->sCurrentPath.length()-1) != '/' )
+         this->sCurrentPath += wxT("/");
+diff -uNr xpe_project.orig/src/xpe.cpp xpe_project/src/xpe.cpp
+--- xpe_project.orig/src/xpe.cpp	2015-09-30 06:30:44.000000000 +0200
++++ xpe_project/src/xpe.cpp	2015-09-30 06:41:08.000000000 +0200
+@@ -27,6 +27,7 @@
+ #include <wx/tokenzr.h>
+ #include <wx/txtstrm.h>
+ #include <wx/wfstream.h>
++#include <wx/log.h>
+ 
+ #ifdef __WXMSW__
+ #include <wx/msw/registry.h>
+@@ -110,7 +111,10 @@
+     wxString sExec(argv[0]);
+     this->sInstallPrefix = libfile::normalize(libfile::dirname(sExec)) + wxT("/../");
+     wxFileName fname(this->sInstallPrefix);
+-    fname.Normalize();
++    {
++		wxLogNull logNo;
++		fname.Normalize();
++	}
+     this->sInstallPrefix = fname.GetFullPath();
+ 
+     // init du répertoire d'installation de povray
