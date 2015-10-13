@@ -16,9 +16,15 @@ KEYWORDS=""
 
 EGIT_BRANCH="ExpressionTemplates"
 
-RDEPEND="dev-libs/gmp[cxx]"
+RDEPEND="
+	>=sci-libs/cln-1.3.2
+	dev-libs/gmp[cxx]
+"
 
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	virtual/pkgconfig
+"
 
 src_prepare() {
 	eautoreconf
