@@ -14,7 +14,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-EGIT_BRANCH="ExpressionTemplates"
+EGIT_BRANCH="master"
 
 RDEPEND="
 	>=sci-libs/cln-1.3.2
