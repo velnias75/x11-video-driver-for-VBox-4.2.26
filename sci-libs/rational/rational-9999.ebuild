@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit autotools eutils git-r3
+inherit autotools-utils git-r3
 
 DESCRIPTION="A C++ rational (fraction) template class"
 HOMEPAGE="https://github.com/velnias75/rational"
@@ -13,13 +13,13 @@ EGIT_REPO_URI="http://github.com/velnias75/rational.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="test"
+IUSE="cln gmp test"
 
 EGIT_BRANCH="master"
 
 RDEPEND="
-	>=sci-libs/cln-1.3.2
-	dev-libs/gmp[cxx]
+	cln? ( >=sci-libs/cln-1.3.2 )
+	gmp? ( dev-libs/gmp[cxx] )
 "
 
 DEPEND="
@@ -33,5 +33,12 @@ src_prepare() {
 }
 
 src_configure() {
-	econf "--docdir=/usr/share/doc/${PF}"
+
+	local myeconfargs=(
+		"--docdir=/usr/share/doc/${PF}"
+		$(use_enable cln)
+		$(use_enable gmp)
+	)
+
+	autotools-utils_src_configure
 }

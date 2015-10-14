@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<maintainer>
+			<email>heiko@rangun.de</email>
+			<name>Heiko Schäfer</name>
+		</maintainer>
+		<bugs-to>https://github.com/velnias75/rational/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="cln">Add support for sci-libs/cln (Class library (C++) for numbers)</flag>
+	</use>
+</pkgmetadata>
