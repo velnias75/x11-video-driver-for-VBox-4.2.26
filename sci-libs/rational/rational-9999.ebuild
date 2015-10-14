@@ -13,6 +13,7 @@ EGIT_REPO_URI="http://github.com/velnias75/rational.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
+IUSE="test"
 
 EGIT_BRANCH="master"
 
@@ -23,6 +24,7 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
+	test? ( >=dev-util/cppunit-1.12 )
 	virtual/pkgconfig
 "
 
