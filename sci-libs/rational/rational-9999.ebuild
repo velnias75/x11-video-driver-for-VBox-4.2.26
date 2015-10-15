@@ -38,6 +38,7 @@ src_configure() {
 		"--docdir=/usr/share/doc/${PF}"
 		$(use_enable cln)
 		$(use_enable gmp)
+		--disable-infint
 	)
 
 	autotools-utils_src_configure
