@@ -1,0 +1,12 @@
+diff -uNr VirtualBox-4.2.34.orig/src/VBox/Additions/x11/vboxvideo/Makefile.kmk VirtualBox-4.2.34/src/VBox/Additions/x11/vboxvideo/Makefile.kmk
+--- VirtualBox-4.2.34.orig/src/VBox/Additions/x11/vboxvideo/Makefile.kmk	2015-10-15 13:32:44.000000000 +0200
++++ VirtualBox-4.2.34/src/VBox/Additions/x11/vboxvideo/Makefile.kmk	2015-10-23 07:39:16.000000000 +0200
+@@ -385,7 +385,7 @@
+  vboxvideo_drv_system_TEMPLATE = VBOXGUESTR3XORGMOD
+  vboxvideo_drv_system_CFLAGS := \
+         $(vboxvideo_drv_70_CFLAGS) -include xorg-server.h
+- vboxvideo_drv_system_DEFS := $(vboxvideo_15_DEFS)
++ vboxvideo_drv_system_DEFS := $(vboxvideo_15_DEFS) VBOX_DRI_OLD
+  vboxvideo_drv_system_INCS += \
+         $(PATH_ROOT)/src/VBox/Runtime/include \
+         /usr/include/x11 \
