@@ -6,7 +6,7 @@ EAPI=5
 
 WX_GTK_VER="2.8"
 
-inherit autotools flag-o-matic multilib versionator wxwidgets
+inherit autotools versionator wxwidgets
 
 MY_PV=$(replace_version_separator 1 '_' )
 MY_PV=$(replace_version_separator 2 '_' $MY_PV)
@@ -25,7 +25,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE="linguas_de linguas_fr linguas_it"
 
-RDEPEND=">=app-eselect/eselect-wxwidgets-0.7-r1"
+RDEPEND="x11-libs/wxGTK:2.8"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
