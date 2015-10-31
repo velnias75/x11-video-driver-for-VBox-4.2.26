@@ -13,13 +13,14 @@ EGIT_REPO_URI="http://github.com/velnias75/rational.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="cln gmp test"
+IUSE="cln gmp mpfr test"
 
 EGIT_BRANCH="master"
 
 RDEPEND="
 	cln? ( >=sci-libs/cln-1.3.2 )
 	gmp? ( dev-libs/gmp[cxx] )
+	mpfr? ( dev-libs/mpfrc++ )
 "
 
 DEPEND="
@@ -38,6 +39,7 @@ src_configure() {
 		"--docdir=/usr/share/doc/${PF}"
 		$(use_enable cln)
 		$(use_enable gmp)
+		$(use_with mpfr mpreal)
 		--disable-infint
 	)
 

@@ -10,5 +10,6 @@
 	</upstream>
 	<use>
 		<flag name="cln">Add support for sci-libs/cln (Class library (C++) for numbers)</flag>
+		<flag name="mpfr">Add support for dev-libs/mpfr (GNU MPFR library)</flag>
 	</use>
 </pkgmetadata>
