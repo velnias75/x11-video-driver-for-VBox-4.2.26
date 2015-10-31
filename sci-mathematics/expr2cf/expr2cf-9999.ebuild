@@ -18,18 +18,9 @@ DEPEND=""
 
 RDEPEND="
 	${DEPEND}
-	sci-libs/rational:0[gmp]
+	sci-libs/rational:0[gmp,mpfr]
 	virtual/pkgconfig
 "
 src_prepare() {
 	eautoreconf
-}
-
-src_configure() {
-
-	local myeconfargs=(
-		"--docdir=/usr/share/doc/${PF}"
-	)
-
-	autotools-utils_src_configure
 }
