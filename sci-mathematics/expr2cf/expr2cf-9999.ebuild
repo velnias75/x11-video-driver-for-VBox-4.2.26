@@ -22,10 +22,15 @@ RDEPEND="
 	virtual/pkgconfig
 "
 
-src_configure() {
-	append-cppflags -DNDEBUG
-}
-
 src_prepare() {
 	eautoreconf
+}
+
+src_configure() {
+
+	append-cppflags -DNDEBUG
+
+	local myeconfargs=( "--docdir=/usr/share/doc/${PF}" )
+
+	autotools-utils_src_configure
 }
