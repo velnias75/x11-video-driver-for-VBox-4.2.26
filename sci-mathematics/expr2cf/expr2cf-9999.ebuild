@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit autotools-utils git-r3
+inherit autotools-utils flag-o-matic git-r3
 
 DESCRIPTION="Converts a simple mathematical expression to a continued fraction sequence "
 HOMEPAGE="https://github.com/velnias75/expr2cf"
@@ -21,6 +21,11 @@ RDEPEND="
 	sci-libs/rational:0[gmp,mpfr]
 	virtual/pkgconfig
 "
+
+src_configure() {
+	append-cppflags -DNDEBUG
+}
+
 src_prepare() {
 	eautoreconf
 }
