@@ -14,8 +14,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=""
+IUSE="static-libs"
 
+DEPEND=""
 RDEPEND="
 	${DEPEND}
 	sci-libs/rational:0[gmp,mpfr]
@@ -30,7 +31,10 @@ src_configure() {
 
 	append-cppflags -DNDEBUG
 
-	local myeconfargs=( "--docdir=/usr/share/doc/${PF}" )
+	local myeconfargs=(
+		"--docdir=/usr/share/doc/${PF}"
+		$(use_enable static-libs static)
+	)
 
 	autotools-utils_src_configure
 }
