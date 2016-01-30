@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<maintainer>
+			<email>heiko@rangun.de</email>
+			<name>Heiko Schäfer</name>
+		</maintainer>
+	</upstream>
+	<use>
+		<flag name="boost">Use dev-libs/boost</flag>
+	</use>
+</pkgmetadata>
