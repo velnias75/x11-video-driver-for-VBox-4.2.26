@@ -14,12 +14,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="boost"
+IUSE="boost stxxl"
 
 DEPEND=""
 RDEPEND="
 	${DEPEND}
 	boost? ( dev-libs/boost )
+	stxxl? ( >=dev-libs/stxxl-1.4.1 )
 	sci-libs/rational:0[gmp,mpfr]
 	virtual/pkgconfig
 "
@@ -34,6 +35,7 @@ src_configure() {
 
 	local myeconfargs=(
 		$(use_with boost)
+		$(use_with stxxl)
 		"--docdir=/usr/share/doc/${PF}"
 	)
 
