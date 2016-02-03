@@ -1,0 +1,12 @@
+diff -uNr stxxl-1.4.1.orig/tools/benchmark_files.cpp stxxl-1.4.1/tools/benchmark_files.cpp
+--- stxxl-1.4.1.orig/tools/benchmark_files.cpp	2014-10-29 10:09:16.000000000 +0100
++++ stxxl-1.4.1/tools/benchmark_files.cpp	2016-02-03 06:22:23.819056666 +0100
+@@ -25,6 +25,8 @@
+ #include <iomanip>
+ #include <vector>
+ 
++#include <cstring>
++
+ #include <stxxl/io>
+ #include <stxxl/aligned_alloc>
+ #include <stxxl/timer>
