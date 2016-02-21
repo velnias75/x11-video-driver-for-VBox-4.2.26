@@ -14,12 +14,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="stxxl"
-
 DEPEND=""
 RDEPEND="
 	${DEPEND}
-	stxxl? ( >=dev-libs/stxxl-1.4.1 )
 	sci-libs/rational:0[gmp,mpfr]
 	virtual/pkgconfig
 "
@@ -33,7 +30,6 @@ src_configure() {
 	append-cppflags -DNDEBUG
 
 	local myeconfargs=(
-		$(use_with stxxl)
 		"--docdir=/usr/share/doc/${PF}"
 	)
 
