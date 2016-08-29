@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit autotools flag-o-matic git-r3
+inherit autotools bash-completion-r1 flag-o-matic git-r3
 
 DESCRIPTION="Simple disk fit calculator"
 HOMEPAGE="https://github.com/velnias75/diskfit"
@@ -14,11 +14,12 @@ SLOT="0"
 KEYWORDS=""
 IUSE="static-libs"
 
-DEPEND=""
+DEPEND="
+	virtual/pkgconfig
+"
 RDEPEND="
 	${DEPEND}
 	dev-libs/glib:2
-	virtual/pkgconfig
 "
 
 src_prepare() {
@@ -28,5 +29,5 @@ src_prepare() {
 
 src_configure() {
 	append-cppflags -DNDEBUG
-	econf $(use_enable static-libs static)
+	econf $(use_enable static-libs static) --with-bash-completion-dir="$(get_bashcompdir)"
 }
