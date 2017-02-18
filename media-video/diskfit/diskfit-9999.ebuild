@@ -20,6 +20,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	dev-libs/glib:2
+	dev-libs/gmp
 "
 
 src_prepare() {
