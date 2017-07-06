@@ -21,6 +21,7 @@ RDEPEND="
 	${DEPEND}
 	dev-libs/glib:2
 	dev-libs/gmp
+	sci-libs/gsl
 "
 
 src_prepare() {
