@@ -25,7 +25,7 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
-	test? ( >=dev-util/cppunit-1.12 )
+	test? ( >=dev-util/cppunit-1.14 )
 	virtual/pkgconfig
 "
 
