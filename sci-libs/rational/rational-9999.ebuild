@@ -8,7 +8,7 @@ inherit autotools-utils git-r3
 
 DESCRIPTION="A C++ rational (fraction) template class"
 HOMEPAGE="https://github.com/velnias75/rational"
-EGIT_REPO_URI="http://github.com/velnias75/rational.git"
+EGIT_REPO_URI="https://github.com/velnias75/rational.git"
 
 LICENSE="GPL-3"
 SLOT="0"

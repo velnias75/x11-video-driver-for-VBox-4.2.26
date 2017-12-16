@@ -8,7 +8,7 @@ inherit autotools-utils flag-o-matic git-r3
 
 DESCRIPTION="En-/decrypts cf-crypts"
 HOMEPAGE="https://github.com/velnias75/cf-crypt"
-EGIT_REPO_URI="http://github.com/velnias75/cf-crypt.git"
+EGIT_REPO_URI="https://github.com/velnias75/cf-crypt.git"
 
 LICENSE="GPL-3"
 SLOT="0"

@@ -8,7 +8,7 @@ inherit autotools-utils flag-o-matic git-r3
 
 DESCRIPTION="Small collection of tools to work with rational numbers"
 HOMEPAGE="https://github.com/velnias75/expr2cf"
-EGIT_REPO_URI="http://github.com/velnias75/expr2cf.git"
+EGIT_REPO_URI="https://github.com/velnias75/expr2cf.git"
 
 LICENSE="GPL-3"
 SLOT="0"
