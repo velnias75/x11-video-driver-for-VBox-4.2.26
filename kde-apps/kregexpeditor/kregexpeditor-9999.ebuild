@@ -5,6 +5,7 @@
 EAPI=6
 
 KDE_HANDBOOK="forceoptional"
+FRAMEWORKS_MINIMAL=5.40.0
 QT_MINIMAL=5.7.1
 
 inherit kde5 git-r3
